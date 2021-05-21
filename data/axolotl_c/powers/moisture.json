@@ -1,0 +1,258 @@
+{
+	"type": "origins:multiple",
+	"moisture": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 10000,
+		"start_value": 10000,
+		"hud_render": {
+			"bar_index": 1
+		}
+	},
+	"loss_ambient_day": {
+		"type": "origins:action_over_time",
+		"interval": 20,
+		"entity_action": {
+			"type": "origins:change_resource",
+			"resource": "axolotl_c:moisture_moisture",
+			"change": -5
+		},
+		"condition": {
+			"type": "origins:daytime"
+		}
+	},
+	"loss_ambient_night": {
+		"type": "origins:action_over_time",
+		"interval": 30,
+		"entity_action": {
+			"type": "origins:change_resource",
+			"resource": "axolotl_c:moisture_moisture",
+			"change": -5
+		},
+		"condition": {
+			"type": "origins:daytime",
+			"inverted": true
+		}
+	},
+	"loss_sprinting": {
+		"type": "origins:action_over_time",
+		"interval": 10,
+		"entity_action": {
+			"type": "origins:change_resource",
+			"resource": "axolotl_c:moisture_moisture",
+			"change": -10
+		},
+		"condition": {
+			"type": "origins:sprinting"
+		}
+	},
+	"loss_height": {
+		"type": "origins:action_over_time",
+		"interval": 20,
+		"entity_action": {
+			"type": "origins:change_resource",
+			"change": -5
+		},
+		"condition": {
+			"type": "origins:on_block",
+			"block_condition": {
+				"type": "origins:height",
+				"comparison": ">=",
+				"compare_to": 100
+			}
+		}
+	},
+	"loss_climate": {
+		"type": "origins:action_over_time",
+		"interval": 10,
+		"entity_action": {
+			"type": "origins:change_resource",
+			"resource": "axolotl_c:moisture_moisture",
+			"change": -10
+		},
+		"condition": {
+			"type": "origins:biome",
+			"condition": {
+				"type": "origins:or",
+				"conditions": [{
+						"type": "origins:category",
+						"category": "mesa"
+					},
+					{
+						"type": "origins:category",
+						"category": "desert"
+					},
+					{
+						"type": "origins:category",
+						"category": "icy"
+					},
+					{
+						"type": "origins:category",
+						"category": "the_end"
+					},
+					{
+						"type": "origins:category",
+						"category": "nether"
+					},
+					{
+						"type": "origins:category",
+						"category": "savanna"
+					}
+				]
+			}
+		}
+	},
+	"gain_rain": {
+		"type": "origins:action_over_time",
+		"interval": 10,
+		"entity_action": {
+			"type": "origins:change_resource",
+			"resource": "axolotl_c:moisture_moisture",
+			"change": 20
+		},
+		"condition": {
+			"type": "origins:in_rain"
+		}
+	},
+	"gain_water": {
+		"type": "origins:action_over_time",
+		"interval": 5,
+		"entity_action": {
+			"type": "origins:change_resource",
+			"resource": "axolotl_c:moisture_moisture",
+			"change": 25
+		},
+		"condition": {
+			"type": "origins:submerged_in",
+			"fluid": "minecraft:water"
+		}
+	},
+	"gain_water_dehydrated": {
+		"type": "origins:action_over_time",
+		"interval": 5,
+		"entity_action": {
+			"type": "origins:change_resource",
+			"resource": "axolotl_c:moisture_moisture",
+			"change": 15
+		},
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+			{
+				"type": "origins:submerged_in",
+				"fluid": "minecraft:water"
+			},
+			{
+				"type": "origins:resource",
+				"resource": "axolotl_c:moisture_moisture",
+				"comparison": "<=",
+				"compare_to": 2500
+			}
+			]
+		}
+	},
+	"gain_bottle": {
+		"type": "origins:action_on_item_use",
+		"item_condition": {
+			"type": "origins:ingredient",
+			"ingredient": {
+				"item": "minecraft:potion"
+			}
+		},
+		"entity_action": {
+			"type": "origins:change_resource",
+			"resource": "axolotl:moisture_moisture",
+			"change": 2500
+		}
+	},
+	"effect_weak_1": {
+		"type": "origins:stacking_status_effect",
+		"min_stacks": 0,
+		"max_stacks": 1,
+		"duration_per_stack": 5,
+		"effects": [{
+			"effect": "minecraft:weakness",
+			"is_ambient": true,
+			"show_particles": false,
+			"show_icon": true,
+			"duration": 5
+		}],
+	
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:resource",
+					"resource": "axolotl_c:moisture_moisture",
+					"comparison": "<=",
+					"compare_to": 5800
+				},
+				{
+					"type": "origins:resource",
+					"resource": "axolotl_c:moisture_moisture",
+					"comparison": ">",
+					"compare_to": 3000
+				}
+			]
+		}
+	},
+	"effect_weak_2": {
+		"type": "origins:stacking_status_effect",
+		"min_stacks": 0,
+		"max_stacks": 2,
+		"duration_per_stack": 5,
+		"effects": [{
+			"effect": "minecraft:weakness",
+			"is_ambient": true,
+			"show_particles": false,
+			"show_icon": true,
+			"duration": 5
+		}],
+	
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:resource",
+					"resource": "axolotl_c:moisture_moisture",
+					"comparison": "<=",
+					"compare_to": 5800
+				},
+				{
+					"type": "origins:resource",
+					"resource": "axolotl_c:moisture_moisture",
+					"comparison": ">",
+					"compare_to": 3000
+				}
+			]
+		}
+	},
+	"effect_hunger": {
+		"type": "origins:modify_exhaustion",
+		"modifier": {
+			"operation": "multiply_total",
+			"value": 1
+		},
+		"condition": {
+			"type": "origins:resource",
+			"resource": "axolotl_c:moisture_moisture",
+			"comparison": "<=",
+			"compare_to": 3000
+		}
+	},
+	"effect_hunger_intense": {
+		"type": "origins:modify_exhaustion",
+		"modifier": {
+			"operation": "multiply_total",
+			"value": 2
+		},
+		"condition": {
+			"type": "origins:resource",
+			"resource": "axolotl_c:moisture_moisture",
+			"comparison": "<=",
+			"compare_to": 3000
+		}
+	},
+	"name": "Water Dependency",
+	"description": "Your skin loses moisture over time; as you begin running low on moisture, you begin to lose hunger more and more quickly! You will also feel weak! You can replenish your moisture by fully submerging yourself in water, or by drinking water."
+}

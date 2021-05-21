@@ -1,0 +1,47 @@
+{
+    "type": "origins:action_over_time",
+    "entity_action": {
+        "type": "origins:apply_effect",
+        "effect": {
+            "duration": 100,
+            "is_ambient": false,
+            "show_particles": false,
+            "show_icon": false,
+            "effect": "minecraft:regeneration",
+            "amplifier": 0
+        }
+    },
+    "interval": 10,
+    "condition": {
+        "type": "origins:or",
+        "inverted": false,
+        "conditions": [
+            {
+                "type": "origins:and",
+                "inverted": false,
+                "conditions": [
+                    {
+                        "type": "origins:fluid_height",
+                        "inverted": false,
+                        "comparison": ">",
+                        "fluid": "water",
+						"compare_to": 0
+                    },
+                    {
+                        "type": "origins:air",
+                        "inverted": false,
+                        "comparison": ">=",
+                        "compare_to": 299
+                    }
+                ]
+            },
+            {
+                "type": "origins:in_rain",
+                "inverted": false
+            }
+        ]
+    },
+    "name": "Proper Watering",
+    "description": "Rain and shallow water will regenerate your health.",
+    "hidden": false
+}

@@ -1,0 +1,15 @@
+{
+	"powers": [
+		"axolotl_c:amphibious",
+		"axolotl_c:moisture",
+		"axolotl_c:regen",
+		"axolotl_c:sea_legs",
+		"origins:carnivore",
+		"origins:aquatic"
+	],
+	"icon": "minecraft:potion",
+	"order": 672,
+	"impact": 3,
+	"name": "Axolotl",
+	"description": "You are known as the mexican walking lizard. You just wanna vibe on both near some water. Known for unparalled natural healing factor."
+}
