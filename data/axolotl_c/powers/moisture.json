@@ -173,7 +173,7 @@
 		"effects": [{
 			"effect": "minecraft:weakness",
 			"is_ambient": true,
-			"show_particles": false,
+			"show_particles": true,
 			"show_icon": true,
 			"duration": 5
 		}],
@@ -204,7 +204,7 @@
 		"effects": [{
 			"effect": "minecraft:weakness",
 			"is_ambient": true,
-			"show_particles": false,
+			"show_particles": true,
 			"show_icon": true,
 			"duration": 5
 		}],
